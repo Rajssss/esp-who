@@ -663,6 +663,10 @@ static esp_err_t stream_handler(httpd_req_t *req)
                  (detected) ? "DETECTED " : "", face_id
 #endif
         );
+
+	//HEAP DEBUG
+	heap_caps_print_heap_info(MALLOC_CAP_8BIT);
+	printf("EMPTY HEAP=> %d \r\n", xPortGetFreeHeapSize());
     }
 
 #ifdef CONFIG_LED_ILLUMINATOR_ENABLED
